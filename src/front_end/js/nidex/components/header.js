@@ -2,9 +2,13 @@
 /**
  *  Import Modules
  */
-import Logo from './header_logo.js'
+import Logo             from './header_logo.js'
 
-import Menu from './header_menu.js'
+import Menu             from './header_menu.js'
+
+import WindowBtns       from './header_window_btns.js'
+
+import VerticalMenu     from './vertical_menu.js'
 
 
 
@@ -18,23 +22,32 @@ class Header extends HTMLElement{
 
         let header = this;
 
-        this.option = option || new Object();
+        this.option             = option || new Object();
 
-        this.ui = option.ui;
+        this.ui                 = option.ui;
+
+        this.windowBtnsWidth    = option.windowBtnsWidth || "120px";
+
+        this.defaultMenuButtons = new Menu.DefaultButtons({
+
+            header : header
+
+        });
+
+        let defaultMenuButtons = this.defaultMenuButtons;
 
 
 
         /**
          *  Set Style
          */
-        this.style.width = "100vw";
-        this.style.height = "30px";
+        this.style.width    = "100vw";
+        this.style.height   = "30px";
         this.style.position = "absolute";
-        this.style.top = '0';
-        this.style.left = '0';
-        this.style.display = 'flex';
+        this.style.top      = '0';
+        this.style.left     = '0';
+        this.style.display  = 'flex';
         this.style.flexFlow = 'row';
-        //this.style.webkitAppRegion  = "drag";
 
 
 
@@ -60,53 +73,13 @@ class Header extends HTMLElement{
 
             buttons : [
 
-                new Menu.Button({
+                defaultMenuButtons.File,                
 
-                    label : 'File',
+                defaultMenuButtons.Edit,
 
-                    click : (...args)=>{
-                        
-                        console.log('File Button Clicked');
-                    
-                    }
+                defaultMenuButtons.View,
 
-                }),
-
-                new Menu.Button({
-
-                    label : 'Edit',
-
-                    click : (...args)=>{
-                        
-                        console.log('File Button Clicked');
-                    
-                    }
-
-                }),
-
-                new Menu.Button({
-
-                    label : 'View',
-
-                    click : (...args)=>{
-                        
-                        console.log('File Button Clicked');
-                    
-                    }
-
-                }),
-
-                new Menu.Button({
-
-                    label : 'Help',
-
-                    click : (...args)=>{
-                        
-                        console.log('File Button Clicked');
-                    
-                    }
-
-                })
+                defaultMenuButtons.Help
 
             ]
 
@@ -114,14 +87,33 @@ class Header extends HTMLElement{
 
         this.appendChild(this.menu);
 
+
+        this.totalMarginHor = this.logo.totalMarginHor + this.menu.totalMarginHor;
+
+    }
+
+    CreateWindowBtns(){
+
+        /**
+         *  Create Window Btns
+         */
+        this.appendChild(new WindowBtns({
+
+            header  : this,
+
+            width   : this.windowBtnsWidth
+
+        }));
+    
     }
 
 }
 
 
 
-Header.Logo = Logo;
-Header.Menu = Menu;
+Header.Logo         = Logo;
+Header.Menu         = Menu;
+Header.WindowBtns   = WindowBtns;
 
 
 

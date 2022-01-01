@@ -2,7 +2,9 @@
 /**
  *  Import Modules
  */
-import Button from './header_menu_button.js'
+import Button           from './header_menu_button.js'
+
+import DefaultButtons   from './header_menu_default_buttons.js'
 
 
 
@@ -36,11 +38,13 @@ import Button from './header_menu_button.js'
         /**
          *  Set Style
          */
-        this.style.height           = "calc(100% - 10px)"; 
+        this.style.height           = "100%";
         this.style.marginLeft       = "5px";
         this.style.marginRight      = "5px";
         this.style.paddingTop       = "5px";
         this.style.paddingBottom    = "5px";
+
+        this.totalMarginHor = 5 + 5;
 
     }
 
@@ -48,7 +52,10 @@ import Button from './header_menu_button.js'
 
 
 
-Menu.Button = Button;
+Menu.Button         = Button;
+
+DefaultButtons.Menu = Menu;
+Menu.DefaultButtons = DefaultButtons;
 
 
 

@@ -5,6 +5,9 @@
 /* Import UI */
 import UI from './ui.js'
 
+/* Import Theme */
+import Theme from './theme.js'
+
 
 
 class NideX{
@@ -46,6 +49,8 @@ class NideX{
 
 
 NideX.UI = UI;
+
+NideX.Theme = Theme;
 
 
 

@@ -33,20 +33,6 @@ class UI{
     Run(){
 
         /**
-         *  Create Window Top Bar
-         */
-        // var windowTopBar = document.createElement('div')
-        // windowTopBar.style.width = "100%";
-        // windowTopBar.style.height = "30px";
-        // windowTopBar.style.position = "absolute";
-        // windowTopBar.style.top = windowTopBar.style.left = 0;
-        // windowTopBar.style.webkitAppRegion = "drag";
-        // document.body.appendChild(windowTopBar);
-        // this.windowTopBarElement = windowTopBar;
-
-
-
-        /**
          *  Create Container
          */
         var container = document.createElement('div')
@@ -77,15 +63,22 @@ class UI{
         /**
          *  Create Window Drag Bar
          */
-        let dragBarWidth = this.header.clientWidth - this.header.menu.clientWidth + this.header.logo.clientWidth;
+        let dragBarWidth = this.header.clientWidth - (this.header.menu.clientWidth + this.header.logo.clientWidth + this.header.totalMarginHor);
 
         this.dragBar = document.createElement('div');
 
-        this.dragBar.style.width = `${dragBarWidth}px`;
+        this.dragBar.style.width = `calc(${dragBarWidth}px - ${this.header.windowBtnsWidth})`;
         this.dragBar.style.height = `100%`;
         this.dragBar.style.webkitAppRegion = "drag";
 
         this.header.appendChild(this.dragBar);
+
+
+
+        /**
+         *  Create Header Window Btns
+         */
+        this.header.CreateWindowBtns();
         
     }
 
