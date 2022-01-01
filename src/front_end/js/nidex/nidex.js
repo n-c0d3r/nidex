@@ -25,6 +25,8 @@ class NideX{
 
         });
 
+        window.nideXApp = this;
+
     }
 
 

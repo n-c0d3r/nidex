@@ -3,7 +3,7 @@
  *  Require Modules
  */
 /* Require NideX */
-const NideX = require('./nidex');
+const NideX = require('./nidex/nidex.js');
 
 
 

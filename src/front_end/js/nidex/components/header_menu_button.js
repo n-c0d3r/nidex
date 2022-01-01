@@ -29,7 +29,7 @@
         /**
          *  Set Style
          */
-        this.style.color        = "rgb(70,70,70)";
+        this.style.color        = "rgb(120,120,120)";
         this.style.fontSize     = "14px";
         this.style.fontFamily   = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
         this.style.maxHeight    = "200px";
@@ -37,9 +37,10 @@
         this.style.paddingLeft  = "10px";
         this.style.paddingRight = "10px";
         this.style.borderRadius = "15px";
+        this.style.transition   = "0.2s";
 
 
-
+        
         /**
          *  Event Listeners
          */
@@ -57,7 +58,7 @@
         this.addEventListener("mouseleave", ( e )=>{
 
             e.target.style.backgroundColor  = "rgba(0,0,0,0)";
-            e.target.style.color            = "rgb(70,70,70)";
+            e.target.style.color            = "rgb(120,120,120)";
 
         });
 

@@ -17,6 +17,8 @@ class WindowBtn extends HTMLElement{
 
         this.btns               = option.btns;
 
+        this.clickCallback      = option.click || (()=>{});
+
         let btn = this;
 
 
@@ -28,8 +30,8 @@ class WindowBtn extends HTMLElement{
         this.style.width            = "12px";
         this.style.color            = "white";
         this.style.textAlign        = "center";
-        this.style.backgroundColor  = `rgba(0,0,0,0)`;//this.backgroundColor;
-        //this.style.border           = "solid 2px rgba(255,255,255,0.2)";
+        this.style.backgroundColor  = `rgba(0,0,0,0)`;
+        this.style.transition       = '0.2s';
         this.style.border           = `solid 2px ${this.borderColor}`;
         this.style.borderRadius     = "8px";
 
@@ -38,6 +40,11 @@ class WindowBtn extends HTMLElement{
         /**
          *  Event Listener
          */
+        this.addEventListener('click', (e)=>{
+
+            e.target.clickCallback(e);
+
+        });
         this.addEventListener("mouseenter", ( e )=>{
 
             e.target.style.backgroundColor  = btn.backgroundColor;
@@ -99,9 +106,15 @@ class WindowBtns extends HTMLElement{
 
                 btns            : this,
 
-                backgroundColor : "rgba(0,255,255,1.0)",
+                backgroundColor : "rgba(0,255,255,0.7)",
 
-                borderColor     : "rgba(0,255,255,0.7)"
+                borderColor     : "rgba(0,255,255,0.4)",
+
+                click           : (e)=>{
+
+                    window.api.send('minimize_window');
+
+                }
 
             })
 
@@ -116,9 +129,15 @@ class WindowBtns extends HTMLElement{
 
                 btns        : this,
 
-                backgroundColor : "rgba(200,255,150,1.0)",
+                backgroundColor : "rgba(200,255,150,0.7)",
 
-                borderColor     : "rgba(200,255,150,0.7)"
+                borderColor     : "rgba(200,255,150,0.4)",
+
+                click           : (e)=>{
+                    
+                    window.nideXApp.ui.Maximize();
+
+                }
 
             })
 
@@ -133,9 +152,15 @@ class WindowBtns extends HTMLElement{
 
                 btns        : this,
 
-                backgroundColor : "rgba(255,100,0,1.0)",
+                backgroundColor : "rgba(255,100,0,0.7)",
 
-                borderColor     : "rgba(255,100,0,0.7)"
+                borderColor     : "rgba(255,100,0,0.4)",
+
+                click           : (e)=>{
+
+                    window.api.send('close_window');
+
+                }
 
             })
 

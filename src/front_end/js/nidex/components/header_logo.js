@@ -23,6 +23,7 @@ class Logo extends HTMLElement{
         this.style.height           = "25px";
         this.style.backgroundImage  = `url('${window.origin}/src/front_end/images/logo.png')`;
         this.style.backgroundSize   = 'cover';
+        this.style.webkitAppRegion = "drag";
 
         this.totalMarginHor = 2 + 3;
 

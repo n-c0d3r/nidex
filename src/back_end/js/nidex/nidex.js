@@ -4,13 +4,16 @@
  */
 /* Require Electron */
 const electron = require('electron');
-const {app: electronApp, BrowserWindow} = electron;
+const {app: electronApp, BrowserWindow, ipcMain} = electron;
 
 /* Require URL */
-const url = require('url');
+const url   = require('url');
 
 /* Require Path */
-const path = require('path');
+const path  = require('path');
+
+/* Require API */
+const API   = require('./api');
 
 
 
@@ -28,6 +31,14 @@ class NideX{
 
         this.electronApp = electronApp;
 
+        this.ipcMain = ipcMain;
+
+        this.api = new API({
+
+            app : this
+
+        });
+
     }
 
 
@@ -37,7 +48,7 @@ class NideX{
      */
     Init(){
 
-
+        this.api.Init();
 
     }
 
@@ -65,13 +76,17 @@ class NideX{
         
                         height        : 600,
         
-                        icon          : path.join(__dirname, '../../front_end/images/logo.ico'),
+                        icon          : path.join(__dirname, '../../../front_end/images/logo.ico'),
         
                         title         : 'NideX',
         
                         titleBarStyle : 'hidden',
         
-                        transparent   : true
+                        transparent   : true,
+
+                        webPreferences: {
+                          preload: path.join(__dirname, 'preload.js')
+                        }
         
                     }
                     
@@ -84,7 +99,7 @@ class NideX{
         
                     url.format({
         
-                        pathname : path.join(__dirname, '../../front_end/html/main.html'),
+                        pathname : path.join(__dirname, '../../../front_end/html/main.html'),
         
                         protocol : 'file',
         
@@ -98,9 +113,55 @@ class NideX{
         
         );
 
+
+
+        /**
+         *  Run API
+         */
+        this.api.Run();
+
+    }
+
+
+
+    /**
+     *  Minimize, Maximize, Close, Resize, SetWindowPos Methods
+     */
+    Minimize(){
+
+        this.window.minimize();
+
+    }
+
+    Maximize(){
+
+        this.window.maximize();
+        
+    }
+
+    Close(){
+
+        this.window.close();
+        
+    }
+
+    Resize(size){
+
+        this.window.setSize(size.x, size.y);
+
+    }
+
+    SetWindowPos(pos){
+
+        this.window.setPosition(pos.x,pos.y);
+
     }
 
 }
+
+
+
+NideX.API = API;
 
 
 
