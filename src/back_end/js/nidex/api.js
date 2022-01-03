@@ -47,7 +47,20 @@ class API{
         /**
          *  Channels
          */
-        //Window Events
+        this.CreateChannels();        
+
+    }
+
+
+
+    /**
+     *  Channels
+     */
+    CreateChannels(){
+        
+        let api = this;
+        let app = this.app;
+
         this.ipcMain.on("minimize_window", (event,args) => {
             
             app.Minimize();
