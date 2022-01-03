@@ -2,14 +2,21 @@
 /**
  *  Import Modules
  */
-/* Import UI */
-import UI from './ui.js'
+import UI           from './ui.js'
 
-/* Import Theme */
-import Theme from './theme.js'
+import Theme        from './theme.js'
+
+import TextEditor   from './text_editor.js'
+
+import Explorer     from './explorer.js'
+
+import StatusBar    from './status_bar.js'
 
 
 
+/**
+ *  Main Class
+ */
 class NideX{
 
     /**
@@ -17,15 +24,45 @@ class NideX{
      */
     constructor(option){
 
-        this.option = option || new Object();
+        window.nideXApp = this;
 
-        this.ui = new NideX.UI({
+        this.option         = option || new Object();
 
-            app: this
+        this.textEditors    = option.textEditors || [
+            
+            new TextEditor({
+
+                app : this
+
+            })
+            
+        ];
+
+        this.explorers      = option.explorers || [
+            
+            new Explorer({
+
+                app : this
+
+            })
+
+        ];
+
+
+
+        this.statusBar      = new StatusBar({
+
+            app : this
+
+        }) 
+
+
+
+        this.ui             = new NideX.UI({
+
+            app : this
 
         });
-
-        window.nideXApp = this;
 
     }
 
@@ -36,13 +73,70 @@ class NideX{
      */
     Init(){
 
+        this.InitTextEditors();
+
+        this.InitExplorers();
+
+        this.statusBar.Init();
+
         this.ui.Init();
 
     }
 
     Run(){
 
+        this.RunTextEditors();
+
+        this.RunExplorers();
+
+        this.statusBar.Run();
+
         this.ui.Run();
+        
+    }
+
+
+
+    /**
+     * 
+     */
+    InitTextEditors(){
+
+        for(let textEditor of this.textEditors){
+
+            textEditor.Init();
+
+        }
+
+    }
+
+    InitExplorers(){
+
+        for(let explorer of this.explorers){
+
+            explorer.Init();
+
+        }
+        
+    }
+
+    RunTextEditors(){
+
+        for(let textEditor of this.textEditors){
+
+            textEditor.Run();
+
+        }
+        
+    }
+
+    RunExplorers(){
+
+        for(let explorer of this.explorers){
+
+            explorer.Run();
+
+        }
         
     }
 
@@ -50,9 +144,18 @@ class NideX{
 
 
 
-NideX.UI = UI;
+/**
+ *  Define Nested Classes
+ */
+NideX.UI            = UI;
 
-NideX.Theme = Theme;
+NideX.Theme         = Theme;
+
+NideX.TextEditor    = TextEditor;
+
+NideX.Explorer      = Explorer;
+
+NideX.StatusBar     = StatusBar;
 
 
 

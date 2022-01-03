@@ -8,6 +8,9 @@ import HR       from './vertical_menu_hr.js'
 
 
 
+/**
+ *  Element
+ */
 class VerticalMenu extends HTMLElement{
     
     /**
@@ -121,6 +124,9 @@ class VerticalMenu extends HTMLElement{
 
 
 
+/**
+ *  Define Nested Classes
+ */
 VerticalMenu.Button = Button;
 VerticalMenu.HR = HR;
 

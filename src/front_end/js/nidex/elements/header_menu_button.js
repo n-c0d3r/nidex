@@ -1,8 +1,9 @@
 
+/**
+ *  Element
+ */
+class Button extends HTMLElement{
 
-
- class Button extends HTMLElement{
-    
     /**
      *  Constructor
      */

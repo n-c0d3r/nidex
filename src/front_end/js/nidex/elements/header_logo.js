@@ -1,4 +1,7 @@
 
+/**
+ *  Element
+ */
 class Logo extends HTMLElement{
     
     /**

@@ -2,7 +2,7 @@
 /**
  *  Main Class
  */
-class Theme{
+class Explorer{
  
     /**
      *  Constructor
@@ -14,6 +14,23 @@ class Theme{
         
  
     }
+
+
+
+    /**
+     *  Init, Run Methods
+     */
+    Init(){
+
+
+
+    }
+
+    Run(){
+
+
+        
+    }
  
 }
  
@@ -22,4 +39,4 @@ class Theme{
 /**
  *  Export
  */
-export {Theme as default}
+export {Explorer as default}

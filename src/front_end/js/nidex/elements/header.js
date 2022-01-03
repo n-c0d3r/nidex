@@ -2,16 +2,18 @@
 /**
  *  Import Modules
  */
-import Logo             from './header_logo.js'
+import Logo                 from './header_logo.js'
 
-import Menu             from './header_menu.js'
+import Menu                 from './header_menu.js'
 
-import WindowBtns       from './header_window_btns.js'
+import WindowBtnContainer   from './header_window_btn_container.js'
 
-import VerticalMenu     from './vertical_menu.js'
+import VerticalMenu         from './vertical_menu.js'
 
 
-
+/**
+ *  Element
+ */
 class Header extends HTMLElement{
     
     /**
@@ -97,7 +99,7 @@ class Header extends HTMLElement{
         /**
          *  Create Window Btns
          */
-        this.appendChild(new WindowBtns({
+        this.appendChild(new WindowBtnContainer({
 
             header  : this,
 
@@ -111,9 +113,12 @@ class Header extends HTMLElement{
 
 
 
-Header.Logo         = Logo;
-Header.Menu         = Menu;
-Header.WindowBtns   = WindowBtns;
+/**
+ *  Define Nested Classes
+ */
+Header.Logo                 = Logo;
+Header.Menu                 = Menu;
+Header.WindowBtnContainer   = WindowBtnContainer;
 
 
 

@@ -1,4 +1,7 @@
 
+/**
+ *  Element
+ */
 class Button extends HTMLElement{
     
     /**
@@ -27,9 +30,11 @@ class Button extends HTMLElement{
 
         this.fontFamily                 = option.fontFamily || "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
 
-        this.fontSize                   = option.fontSize || "16px";
+        this.fontSize                   = option.fontSize || "14px";
 
         this.subMenu                    = option.subMenu;
+
+        this.clickCallack               = option.clickCallack || (()=>{});
 
 
 
@@ -44,30 +49,23 @@ class Button extends HTMLElement{
          *  Set Style
          */
         this.style.transition       = "0.5s";
-        this.style.height           = "calc(30px - 3px)";
+        this.style.height           = "calc(30px - 4px)";
         this.style.width            = "calc(100% - 20px)";
         this.style.color            = this.color;
         this.style.fontSize         = this.fontSize;
         this.style.fontFamily       = this.fontFamily;
         this.style.paddingLeft      = "10px";
         this.style.paddingRight     = "10px";
-        this.style.paddingTop       = "3px";
+        this.style.paddingTop       = "4px";
 
 
 
         /**
          *  Event Listener
          */
-        document.addEventListener('click', (e)=>{
+        this.addEventListener('click', (e)=>{
 
-            /*
-            if(menu.ready){
-                menu.remove();
-            }
-            else{
-                menu.ready = true;
-            }
-            */
+            e.target.clickCallack(e);
 
         });
         this.addEventListener("mouseenter", ( e )=>{

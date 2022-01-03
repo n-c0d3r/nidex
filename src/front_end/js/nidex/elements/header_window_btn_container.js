@@ -1,4 +1,7 @@
 
+/**
+ *  Button Element
+ */
 class WindowBtn extends HTMLElement{
 
     constructor(option){
@@ -64,7 +67,10 @@ class WindowBtn extends HTMLElement{
 
 
 
-class WindowBtns extends HTMLElement{
+/**
+ *  Button Container Element
+ */
+class WindowBtnContainer extends HTMLElement{
 
     constructor(option){
 
@@ -175,7 +181,7 @@ class WindowBtns extends HTMLElement{
 /**
  *  Define HTML Tag
  */
-customElements.define('nidex-header-window-btns', WindowBtns);
+customElements.define('nidex-header-window-btn-container', WindowBtnContainer);
 customElements.define('nidex-header-window-btn', WindowBtn);
 
 
@@ -183,4 +189,4 @@ customElements.define('nidex-header-window-btn', WindowBtn);
 /**
  *  Export
  */
-export {WindowBtns as default}
+export {WindowBtnContainer as default}

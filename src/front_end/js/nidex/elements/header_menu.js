@@ -8,8 +8,11 @@ import DefaultButtons   from './header_menu_default_buttons.js'
 
 
 
- class Menu extends HTMLElement{
-    
+/**
+ *  Element
+ */
+class Menu extends HTMLElement{
+
     /**
      *  Constructor
      */
@@ -52,6 +55,9 @@ import DefaultButtons   from './header_menu_default_buttons.js'
 
 
 
+/**
+ *  Define Nested Classes
+ */
 Menu.Button         = Button;
 
 DefaultButtons.Menu = Menu;

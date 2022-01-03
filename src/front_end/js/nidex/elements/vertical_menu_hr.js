@@ -1,4 +1,7 @@
 
+/**
+ *  Element
+ */
 class HR extends HTMLElement{
     
     /**

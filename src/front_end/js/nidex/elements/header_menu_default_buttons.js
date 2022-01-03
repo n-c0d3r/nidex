@@ -6,10 +6,16 @@ import VerticalMenu     from './vertical_menu.js'
 
 
 
+/**
+ *  Global Variables
+ */
 var Menu = '';
 
 
 
+/**
+ *  Element
+ */
 class DefaultButtons{
 
     constructor(option){
@@ -260,7 +266,56 @@ class DefaultButtons{
 
             new Menu.Button({
 
-                label : 'Help'
+                label : 'Help',
+
+                click : (e)=>{
+        
+                    let btn = e.target;
+                    
+                    document.body.appendChild(
+        
+                        new VerticalMenu({
+        
+                            position : {
+                                x : btn.offsetLeft,
+                                y : header.offsetTop + header.offsetHeight
+                            },
+        
+                            buttonGroups  : [
+        
+                                [
+        
+                                    new VerticalMenu.Button({
+        
+                                        label : 'Get Started'
+        
+                                    }),
+        
+                                    new VerticalMenu.Button({
+        
+                                        label : 'Documentation'
+        
+                                    })
+        
+                                ],
+
+                                [     
+                                                                   
+                                    new VerticalMenu.Button({
+        
+                                        label : 'About'
+    
+                                    })
+
+                                ]
+        
+                            ]
+        
+                        })
+        
+                    );
+                
+                }
 
             })
 
