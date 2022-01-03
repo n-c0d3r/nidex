@@ -2,16 +2,14 @@
 /**
  *  Require Modules
  */
-/* Require URL */
 const url = require('url');
 
-/* Require Path */
 const path = require('path');
 
 
 
 /**
- *  NideX Class
+ *  Main Class
  */
 class API{
 
@@ -28,6 +26,11 @@ class API{
 
     }
     
+
+
+    /**
+     *  Init, Run Methods
+     */
     Init(){
 
 
@@ -44,7 +47,7 @@ class API{
         /**
          *  Channels
          */
-        //Window Btn Events
+        //Window Events
         this.ipcMain.on("minimize_window", (event,args) => {
             
             app.Minimize();

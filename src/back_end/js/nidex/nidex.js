@@ -2,23 +2,19 @@
 /**
  *  Require Modules
  */
-/* Require Electron */
 const electron = require('electron');
 const {app: electronApp, BrowserWindow, ipcMain} = electron;
 
-/* Require URL */
 const url   = require('url');
 
-/* Require Path */
 const path  = require('path');
 
-/* Require API */
 const API   = require('./api');
 
 
 
 /**
- *  NideX Class
+ *  Main Class
  */
 class NideX{
 
@@ -161,11 +157,14 @@ class NideX{
 
 
 
+/**
+ *  Define Nested Classes
+ */
 NideX.API = API;
 
 
 
 /**
- *  Export NideX
+ *  Export
  */
 module.exports = NideX;

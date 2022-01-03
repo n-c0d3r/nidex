@@ -2,13 +2,12 @@
 /**
  *  Require Modules
  */
-/* Require NideX */
 const NideX = require('./nidex/nidex.js');
 
 
 
 /**
- *  Create And Run NideX
+ *  Create App
  */
 let app = new NideX({
 
@@ -16,6 +15,16 @@ let app = new NideX({
     
 });
 
+
+
+/**
+ *  Init App
+ */
 app.Init();
 
+
+
+/**
+ *  Run App
+ */
 app.Run();

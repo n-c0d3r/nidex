@@ -15,11 +15,16 @@ let app = new NideX({
 
 });
 
-/**
- *  Set Global
- */
-window.nideXApp = app;
 
+
+/**
+ *  Init App
+ */
 app.Init();
 
+
+
+/**
+ *  Run App
+ */
 app.Run();
