@@ -70,13 +70,25 @@ import VerticalMenu from './vertical_menu.js'
             
                             new VerticalMenu.Button({
     
-                                label : 'Close All'
+                                label : 'Close All',
+
+                                click : ()=>{
+
+                                    btn.textEditor.CloseAll();
+
+                                }
     
                             }),
     
                             new VerticalMenu.Button({
     
-                                label : 'Close Saved'
+                                label : 'Close Saved',
+
+                                click : ()=>{
+
+                                    btn.textEditor.CloseSaved();
+
+                                }
     
                             })
     

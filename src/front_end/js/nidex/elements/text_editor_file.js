@@ -22,6 +22,8 @@ import Div              from './div.js'
         
         super();
 
+        const fileElement = this;
+
         this.option         = option || new Object();
 
         this.textEditor     = option.textEditor;
@@ -30,13 +32,17 @@ import Div              from './div.js'
 
             transition          : 0.2s;
 
-            height      : 30px;
+            height          : 30px;
 
-            font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family     : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-            display     : flex;
+            display         : flex;
 
-            flex-flow   : row;
+            flex-flow       : row;
+            
+            margin-right    : 5px;
+
+            border-radius   : 5px;
         
         `;
 
@@ -47,6 +53,43 @@ import Div              from './div.js'
         this.fileType       = nameParts[nameParts.length - 1];
 
         this.cwd            = this.option.cwd || '';
+
+        this.index          = this.option.index || 0;
+
+
+
+        this.className      = 'noselect';
+
+        
+
+        this.closeBtn       = new Div({
+        
+            style       : `
+
+                transition          : 0.2s;
+                    
+                width               : 20px;
+
+                height              : 20px;
+
+                margin              : 5px;
+
+                border-radius       : 5px;
+
+                background-size     : cover;
+            
+            
+            `,
+
+            class       : 'text-editor-file-close-btn'
+
+        });
+
+        this.closeBtn.addEventListener('click',(e)=>{
+
+            fileElement.Close();
+
+        });
 
         this.appendChild(
 
@@ -108,29 +151,8 @@ import Div              from './div.js'
                         textContent : `${this.name}`
         
                     }),
-        
-                    new Div({
-        
-                        style       : `
 
-                            transition          : 0.2s;
-                                
-                            width               : 20px;
-        
-                            height              : 20px;
-        
-                            margin              : 5px;
-        
-                            border-radius       : 5px;
-        
-                            background-size     : cover;
-                        
-                        
-                        `,
-
-                        class       : 'text-editor-file-close-btn'
-        
-                    })
+                    this.closeBtn
 
                 ]
 
@@ -170,7 +192,7 @@ import Div              from './div.js'
 
             if(isMouseHover){
 
-                this.style.backgroundColor = 'rgba(0,0,0,0.08)';
+                this.style.backgroundColor = 'rgba(255,255,255,0.05)';
 
             }
             else{
@@ -184,7 +206,7 @@ import Div              from './div.js'
 
             if(isMouseHover){
 
-                this.style.backgroundColor = 'rgba(0,0,0,0.1)';
+                this.style.backgroundColor = 'rgba(0,0,0,0.05)';
 
             }
             else{
@@ -199,6 +221,16 @@ import Div              from './div.js'
 
     }
   
+
+
+    Close(){
+
+        let textEditor = this.bar.textEditor;
+
+        textEditor.CloseFile(this.index);
+
+    }
+
 }
 
 

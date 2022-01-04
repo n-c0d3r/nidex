@@ -40,76 +40,9 @@ class Element extends HTMLElement{
 
         `;
 
-        this.files          = [
-            
-            new File({
 
-                name    : 'untitled.js',
 
-                cwd     : 'D:/'
-
-            }),
-
-            new File({
-
-                name    : 'untitled.py',
-
-                cwd     : 'D:/'
-
-            }),
-
-            new File({
-
-                name    : 'untitled.php',
-
-                cwd     : 'D:/'
-
-            }),
-
-            new File({
-
-                name    : 'untitled.css',
-
-                cwd     : 'D:/'
-
-            }),
-
-            new File({
-
-                name    : 'untitled.html',
-
-                cwd     : 'D:/'
-
-            }),
-
-            new File({
-
-                name    : 'untitled.html',
-
-                cwd     : 'D:/'
-
-            }),
-
-            new File({
-
-                name    : 'untitled.html',
-
-                cwd     : 'D:/'
-
-            })
-
-        ];
-
-        this.files[0].SetOpening(true);
-        
-
-        for(let file of this.files){
-
-            file.bar = this;
-
-            this.appendChild(file);
-
-        }
+        this.ReloadFiles();
 
 
 
@@ -167,6 +100,59 @@ class Element extends HTMLElement{
     ScrollRight(){
 
         this.scrollLeft -= this.wheelSen;
+
+    }
+
+
+
+    /**
+     *  
+     */
+    ReloadFiles(){
+
+        /* Clear Child Elements */
+        this.innerHTML = '';
+
+
+        
+        /* Create New Child Elements */
+        this.files = [];
+
+        let index = 0;
+
+        for(let file of this.textEditor.files){
+
+            this.files.push(
+
+                new File({
+
+                    name    : file.name,
+
+                    cwd     : file.cwd,
+
+                    index   : index
+
+                })
+
+            );
+
+            index++;
+
+        }
+
+        if(this.files[this.textEditor.currentFileIndex] != null){
+
+            this.files[this.textEditor.currentFileIndex].SetOpening(true);
+            
+        }
+
+        for(let file of this.files){
+
+            file.bar = this;
+
+            this.appendChild(file);
+
+        }
 
     }
   

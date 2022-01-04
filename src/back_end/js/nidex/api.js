@@ -2,9 +2,11 @@
 /**
  *  Require Modules
  */
-const url = require('url');
+const url   = require('url');
 
-const path = require('path');
+const path  = require('path');
+
+const fs    = require('fs');
 
 
 
@@ -89,6 +91,30 @@ class API{
         this.ipcMain.on("set_window_pos", (event,args) => {
             
             app.SetWindowPos(args);
+
+        });
+
+
+        
+        /**
+         *  File Management Channels
+         */
+        this.ipcMain.handle('read_file', async (event, filePath) => {
+            
+            filePath = path.normalize(filePath);
+
+            let fileContent = fs.readFileSync(filePath).toString();
+
+            return fileContent;
+
+        })
+        this.ipcMain.on("write_file", (event,args) => {
+            
+            let fileContent = args.content;
+
+            let filePath    = args.path;
+
+            fs.writeFileSync(filePath, fileContent);
 
         });
 

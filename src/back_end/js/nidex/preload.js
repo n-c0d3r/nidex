@@ -16,6 +16,16 @@ contextBridge.exposeInMainWorld(
         
         receive: (channel, func) => {
             ipcRenderer.on(channel, (event, ...args) => func(...args));
+        },
+
+        fetch: (channel, data, func)=>{
+
+            ipcRenderer.invoke(channel, data).then((result) => {
+                
+                func(result);
+
+            })
+
         }
 
     }

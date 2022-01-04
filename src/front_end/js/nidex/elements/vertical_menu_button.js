@@ -34,7 +34,7 @@ class Button extends HTMLElement{
 
         this.subMenu                    = option.subMenu;
 
-        this.clickCallack               = option.clickCallack || (()=>{});
+        this.clickCallack               = option.click || (()=>{});
 
 
 
