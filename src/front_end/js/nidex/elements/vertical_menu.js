@@ -31,9 +31,11 @@ class VerticalMenu extends HTMLElement{
 
         this.width              = option.width || "250px";
 
-        this.backgroundColor    = option.backgroundColor || "rgba(255,255,255,0.1)";
+        this.backgroundColor    = option.backgroundColor || "rgba(70,70,70,0.95)";
 
         this.borderRadius       = option.borderRadius || "12px";
+
+        this.closeCallback      = option.close || (()=>{});
 
 
 
@@ -110,6 +112,9 @@ class VerticalMenu extends HTMLElement{
         document.addEventListener('click', (e)=>{
 
             if(menu.ready){
+
+                menu.closeCallback(e);
+                
                 menu.remove();
             }
             else{

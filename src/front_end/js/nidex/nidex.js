@@ -12,6 +12,8 @@ import Explorer     from './explorer.js'
 
 import StatusBar    from './status_bar.js'
 
+import FileManager    from './file_manager.js'
+
 
 
 /**
@@ -28,6 +30,16 @@ class NideX{
 
         this.option         = option || new Object();
 
+
+
+        this.fileManager    = option.fileManager || new FileManager({
+
+            app : this
+
+        });
+
+
+
         this.textEditors    = option.textEditors || [
             
             new TextEditor({
@@ -37,6 +49,8 @@ class NideX{
             })
             
         ];
+
+
 
         this.explorers      = option.explorers || [
             
@@ -156,6 +170,8 @@ NideX.TextEditor    = TextEditor;
 NideX.Explorer      = Explorer;
 
 NideX.StatusBar     = StatusBar;
+
+NideX.FileManager   = FileManager;
 
 
 
