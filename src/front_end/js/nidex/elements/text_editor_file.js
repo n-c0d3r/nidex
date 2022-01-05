@@ -42,7 +42,7 @@ import Div              from './div.js'
             
             margin-right    : 5px;
 
-            border-radius   : 5px;
+            border-radius   : 10px;
         
         `;
 
@@ -141,8 +141,6 @@ import Div              from './div.js'
                             font-weight         : 100;
 
                             padding-top         : 5px;   
-                            
-                            padding-left        : 5px;
 
                             padding-right       : 5px;  
 
@@ -162,7 +160,7 @@ import Div              from './div.js'
 
 
 
-        this.SetOpening(false);
+        this.SetHighlightStyle(false);
 
 
 
@@ -171,20 +169,28 @@ import Div              from './div.js'
          */
         this.addEventListener('mouseenter',(e)=>{
 
-            e.target.SetOpening(e.target.isOpening, true);
+            e.target.SetHighlightStyle(e.target.isOpening, true);
 
         });
         this.addEventListener('mouseleave',(e)=>{
 
-            e.target.SetOpening(e.target.isOpening, false);
+            e.target.SetHighlightStyle(e.target.isOpening, false);
+
+        });
+        this.addEventListener('click',(e)=>{
+
+            fileElement.textEditor.SetCurrentFileIndex(fileElement.index);
 
         });
   
     }
 
 
-
-    SetOpening(value, mouseHover){
+    
+    /**
+     *  Style
+     */
+    SetHighlightStyle(value, mouseHover){
 
         let isMouseHover = mouseHover || false;
 
@@ -217,12 +223,28 @@ import Div              from './div.js'
 
         }
 
+        if(isMouseHover){
+
+            this.closeBtn.style.backgroundImage = `url('${window.origin}/src/front_end/images/text_editor/close.png')`;
+            this.closeBtn.style.backgroundColor = `rgba(255,255,255,0.05)`;
+
+        }
+        else{
+
+            this.closeBtn.style.backgroundImage = `none`;
+            this.closeBtn.style.backgroundColor = `rgba(0,0,0,0)`;
+            
+        }
+
         this.isOpening = value;
 
     }
   
 
 
+    /**
+     *  Close Method
+     */
     Close(){
 
         let textEditor = this.bar.textEditor;

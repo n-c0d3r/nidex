@@ -42,7 +42,7 @@ class Element extends HTMLElement{
 
 
 
-        this.ReloadFiles();
+        this.RecreateFileElements();
 
 
 
@@ -106,9 +106,9 @@ class Element extends HTMLElement{
 
 
     /**
-     *  
+     *  File Elements
      */
-    ReloadFiles(){
+    RecreateFileElements(){
 
         /* Clear Child Elements */
         this.innerHTML = '';
@@ -126,11 +126,13 @@ class Element extends HTMLElement{
 
                 new File({
 
-                    name    : file.name,
+                    name        : file.name,
 
-                    cwd     : file.cwd,
+                    cwd         : file.cwd,
 
-                    index   : index
+                    index       : index,
+
+                    textEditor  : this.textEditor
 
                 })
 
@@ -142,7 +144,7 @@ class Element extends HTMLElement{
 
         if(this.files[this.textEditor.currentFileIndex] != null){
 
-            this.files[this.textEditor.currentFileIndex].SetOpening(true);
+            this.files[this.textEditor.currentFileIndex].SetHighlightStyle(true);
             
         }
 

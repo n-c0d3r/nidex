@@ -21,7 +21,9 @@ class FileManager{
 
             'css'   : `${window.origin}/src/front_end/images/file_icons/css.png`,
 
-            'txt'   : `${window.origin}/src/front_end/images/file_icons/txt.png`
+            'txt'   : `${window.origin}/src/front_end/images/file_icons/txt.png`,
+
+            'html'  : `${window.origin}/src/front_end/images/file_icons/html.png`
 
         };
  

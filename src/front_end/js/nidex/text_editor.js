@@ -114,7 +114,7 @@ class TextEditor{
 
         this.LoadFilesFromInfos([]);
 
-        this.element.fileBar.ReloadFiles();
+        this.element.fileBar.RecreateFileElements();
 
     }
 
@@ -138,7 +138,7 @@ class TextEditor{
 
         this.currentFileIndex = Clamp(this.currentFileIndex, 0, this.files.length);
 
-        this.element.fileBar.ReloadFiles();
+        this.element.fileBar.RecreateFileElements();
 
     }
 
@@ -191,6 +191,14 @@ class TextEditor{
             }
 
         );
+
+    }
+
+    SetCurrentFileIndex(index){
+
+        this.currentFileIndex = index;
+
+        this.element.fileBar.RecreateFileElements();
 
     }
  
