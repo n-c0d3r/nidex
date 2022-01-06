@@ -47,6 +47,20 @@ class Element extends HTMLElement{
 
     }
 
+
+
+    SetStyle(cssText){
+
+        this.style.cssText = cssText;
+
+    }
+    
+    AddStyle(cssText){
+
+        this.style.cssText += cssText;
+
+    }
+
 }
 
 

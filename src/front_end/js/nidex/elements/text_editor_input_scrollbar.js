@@ -24,6 +24,12 @@
             height                      : 100%;
 
             max-height                  : 100%;
+
+            background-color            : rgb(30,30,30);
+
+            border-top-right-radius     : 10px;
+
+            border-bottom-right-radius  : 10px;
         
         `;
   

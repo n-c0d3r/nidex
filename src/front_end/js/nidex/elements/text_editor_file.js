@@ -1,6 +1,6 @@
 
 /**
- *  Element
+ *  Import Modules
  */
 import Row              from './row.js'
 
@@ -198,12 +198,12 @@ import Div              from './div.js'
 
             if(isMouseHover){
 
-                this.style.backgroundColor = 'rgba(255,255,255,0.05)';
+                this.style.backgroundColor = 'rgba(30,30,30,1)';
 
             }
             else{
 
-                this.style.backgroundColor = 'rgba(0,0,0,0)';
+                this.style.backgroundColor = 'rgba(25,25,25,1)';
                 
             }
 
@@ -212,12 +212,12 @@ import Div              from './div.js'
 
             if(isMouseHover){
 
-                this.style.backgroundColor = 'rgba(0,0,0,0.05)';
+                this.style.backgroundColor = 'rgba(20,20,20,1)';
 
             }
             else{
 
-                this.style.backgroundColor = 'rgba(0,0,0,0.2)';
+                this.style.backgroundColor = 'rgba(15,15,15,1)';
                 
             }
 

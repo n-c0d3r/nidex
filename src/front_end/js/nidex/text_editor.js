@@ -26,6 +26,8 @@ class TextEditor{
 
         this.currentFileIndex   = option.currentFileIndex || 3;
 
+        this.language           = option.language || 'javascript';
+
         this.LoadFilesFromInfos( option.files || (
             
             [
@@ -34,7 +36,7 @@ class TextEditor{
 
                     name    : 'untitled.js',
 
-                    cwd     : 'D:/'
+                    cwd     : 'D:/demoNideX'
 
                 },
 
@@ -42,7 +44,7 @@ class TextEditor{
 
                     name    : 'untitled.py',
 
-                    cwd     : 'D:/'
+                    cwd     : 'D:/demoNideX'
 
                 },
 
@@ -50,7 +52,7 @@ class TextEditor{
 
                     name    : 'untitled.html',
 
-                    cwd     : 'D:/'
+                    cwd     : 'D:/demoNideX'
 
                 },
 
@@ -58,7 +60,7 @@ class TextEditor{
 
                     name    : 'untitled.css',
 
-                    cwd     : 'D:/'
+                    cwd     : 'D:/demoNideX'
 
                 },
 
@@ -66,7 +68,7 @@ class TextEditor{
 
                     name    : 'untitled.txt',
 
-                    cwd     : 'D:/'
+                    cwd     : 'D:/demoNideX'
 
                 }
 
@@ -90,6 +92,8 @@ class TextEditor{
     Run(){
 
         this.CreateElement();
+
+        this.SetCurrentFileIndex(this.currentFileIndex);
         
     }
 
@@ -108,13 +112,30 @@ class TextEditor{
 
 
     /**
+     *  
+     */
+    CreateLineElements(lines){
+
+        return this.GetCurrentLanguage().CreateLineElements(lines);
+
+    }
+
+    GetCurrentLanguage(){
+
+        return this.app.languageManager.GetLang(this.language);
+
+    }
+
+
+
+    /**
      *  File Management Methods
      */
     CloseAll(){
 
         this.LoadFilesFromInfos([]);
 
-        this.element.fileBar.RecreateFileElements();
+        this.SetCurrentFileIndex(this.currentFileIndex);
 
     }
 
@@ -138,7 +159,7 @@ class TextEditor{
 
         this.currentFileIndex = Clamp(this.currentFileIndex, 0, this.files.length);
 
-        this.element.fileBar.RecreateFileElements();
+        this.SetCurrentFileIndex(this.currentFileIndex);
 
     }
 
@@ -199,6 +220,14 @@ class TextEditor{
         this.currentFileIndex = index;
 
         this.element.fileBar.RecreateFileElements();
+
+        this.element.pathBar.UpdateContent(this.GetCurrentFile());
+
+    }
+
+    GetCurrentFile(){
+
+        return this.files[this.currentFileIndex];
 
     }
  

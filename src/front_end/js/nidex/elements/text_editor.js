@@ -106,7 +106,13 @@ class Element extends HTMLElement{
         
                                 style   : `
         
-                                    width   : calc(100% - 35px);
+                                    width               : calc(100% - 35px);
+
+                                    background-color    : rgba(15,15,15,1);
+
+                                    border-radius       : 10px;
+
+                                    -moz-border-radius  : 10px;
                                 
                                 `,
         
@@ -152,13 +158,23 @@ class Element extends HTMLElement{
 
                     }),
 
+                    new Div({
+
+                        style   : `
+                        
+                            height  : 5px;
+                        
+                        `
+
+                    }),
+
                     new Column({
 
                         style   : `
                         
                             width   : 100%;
                             
-                            height  : calc(100% - ${30 + 20 + 5}px);
+                            height  : calc(100% - ${30 + 20 + 5 + 5}px);
                         
                         `,
 
@@ -168,9 +184,9 @@ class Element extends HTMLElement{
 
                                 style   : `
                                 
-                                    width                   : calc(100% - 10px);
+                                    width                   : calc(100% - ${10 + 25}px);
                                                 
-                                    height  : 100%;
+                                    height                  : 100%;
                                 
                                 `,
         
@@ -180,9 +196,13 @@ class Element extends HTMLElement{
                 
                                         style   : `
                 
-                                            width   : calc(100% - 120px);
+                                            width   : calc(100% - ${0}px);
                                         
-                                            height  : calc(100% - 20px);
+                                            height  : 100%;
+
+                                            -moz-border-radius          : 10px;
+                                
+                                            border-radius               : 10px;
                                         
                                         `,
                 
@@ -192,24 +212,6 @@ class Element extends HTMLElement{
                 
                                         ]
                 
-                                    }),
-
-                                    new Div({
-        
-                                        style   : `
-                                        
-                                            width   : 120px;
-                                        
-                                            height  : 100%;
-                                        
-                                        `,
-        
-                                        childs  : [
-        
-                                            this.inputScrollbar
-        
-                                        ]
-        
                                     })
                 
                                 ]

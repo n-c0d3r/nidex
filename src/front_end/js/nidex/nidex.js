@@ -2,17 +2,19 @@
 /**
  *  Import Modules
  */
-import UI           from './ui.js'
+import UI               from './ui.js'
 
-import Theme        from './theme.js'
+import Theme            from './theme.js'
 
-import TextEditor   from './text_editor.js'
+import TextEditor       from './text_editor.js'
 
-import Explorer     from './explorer.js'
+import Explorer         from './explorer.js'
 
-import StatusBar    from './status_bar.js'
+import StatusBar        from './status_bar.js'
 
-import FileManager    from './file_manager.js'
+import FileManager      from './file_manager.js'
+
+import LanguageManager  from './language_manager.js'
 
 
 
@@ -68,7 +70,15 @@ class NideX{
 
             app : this
 
-        }) 
+        }); 
+
+
+
+        this.languageManager             = new NideX.LanguageManager({
+
+            app : this
+
+        });
 
 
 
@@ -87,6 +97,8 @@ class NideX{
      */
     Init(){
 
+        this.languageManager.Init();
+
         this.InitTextEditors();
 
         this.InitExplorers();
@@ -98,6 +110,8 @@ class NideX{
     }
 
     Run(){
+        
+        this.languageManager.Run();
 
         this.RunTextEditors();
 
@@ -161,17 +175,19 @@ class NideX{
 /**
  *  Define Nested Classes
  */
-NideX.UI            = UI;
+NideX.UI                = UI;
 
-NideX.Theme         = Theme;
+NideX.Theme             = Theme;
 
-NideX.TextEditor    = TextEditor;
+NideX.TextEditor        = TextEditor;
 
-NideX.Explorer      = Explorer;
+NideX.Explorer          = Explorer;
 
-NideX.StatusBar     = StatusBar;
+NideX.StatusBar         = StatusBar;
 
-NideX.FileManager   = FileManager;
+NideX.FileManager       = FileManager;
+
+NideX.LanguageManager   = LanguageManager;
 
 
 

@@ -24,19 +24,23 @@ class Element extends HTMLElement{
 
         this.style.cssText  = `
         
-            width       : 100%;
+            width               : 100%;
         
-            max-width   : 100%;
+            max-width           : 100%;
 
-            height      : 30px;
+            height              : 30px;
 
-            font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family         : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         
-            display     : flex;
+            display             : flex;
 
-            flex-flow   : row;
+            flex-flow           : row;
 
-            overflow-x  : hidden;
+            overflow-x          : hidden;
+
+            -moz-border-radius  : 10px;
+
+            border-radius       : 10px;
 
         `;
 

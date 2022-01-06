@@ -15,6 +15,9 @@
 
         this.textContent    = option.textContent || '';
 
+        if(this.option.innerText != null)
+            this.innerText  = option.innerText;
+
         this.className      = option.class || '';
 
         let defaultStyle    = `
@@ -42,6 +45,20 @@
             this.appendChild(child);
 
         }
+
+    }
+
+
+
+    SetStyle(cssText){
+
+        this.style.cssText = cssText;
+
+    }
+    
+    AddStyle(cssText){
+
+        this.style.cssText += cssText;
 
     }
 

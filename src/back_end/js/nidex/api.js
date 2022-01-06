@@ -73,21 +73,25 @@ class API{
             app.Minimize();
 
         });
+
         this.ipcMain.on("maximize_window", (event,args) => {
             
             app.Maximize();
 
         });
+
         this.ipcMain.on("close_window", (event,args) => {
             
             app.Close();
 
         });
+
         this.ipcMain.on("resize_window", (event,args) => {
             
             app.Resize(args);
 
         });
+
         this.ipcMain.on("set_window_pos", (event,args) => {
             
             app.SetWindowPos(args);
@@ -108,6 +112,7 @@ class API{
             return fileContent;
 
         })
+
         this.ipcMain.on("write_file", (event,args) => {
             
             let fileContent = args.content;
@@ -115,6 +120,35 @@ class API{
             let filePath    = args.path;
 
             fs.writeFileSync(filePath, fileContent);
+
+        });
+
+
+        
+        /**
+         *  Path Channels
+         */
+        this.ipcMain.handle("path_sep", async (event,filePath) => {
+
+            return path.sep;
+
+        });
+
+        this.ipcMain.handle("path_normalize", async (event,filePath) => {
+
+            return path.normalize(filePath);
+
+        });
+        
+        this.ipcMain.handle("path_dirname", async (event,filePath) => {
+
+            return path.dirname(filePath);
+
+        });
+        
+        this.ipcMain.handle("path_basename", async (event,filePath) => {
+
+            return path.basename(filePath);
 
         });
 
